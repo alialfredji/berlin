@@ -5,6 +5,7 @@ require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
 export default createHookApp({
+    trace: true,
     services: [
         require('@forrestjs/service-env'),
         require('@forrestjs/service-logger'),
@@ -16,11 +17,12 @@ export default createHookApp({
         require('@forrestjs/service-express-session'),
     ],
     features: [],
-    trace: true,
-    settings: async ({ setConfig }) => {
+    settings: async ({ setConfig, getEnv, getConfig }) => {
         setConfig('jwt', {
-            secret: 'secret',
-            duration: '10y',
+            secret: getEnv('JWT_SECRET'),
+            duration: getEnv('JWT_DURATION'),
         })
+
+        // console.log(getConfig('jwt'))
     },
 })
