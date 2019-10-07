@@ -1,0 +1,43 @@
+{
+  "name": "berlin",
+  "version": "0.0.1",
+  "description": "master plan",
+  "main": "index.js",
+  "scripts": {
+    "----- // DEFAULT SCRIPTS // -----": "",
+    "start": "npm run build && cross-env NODE_ENV=production node index",
+    "start:dev": "cross-env NODE_ENV=development nodemon --watch src -e js --watch build/src index",
+    "build": "cross-env NODE_ENV=production babel src --out-dir build/src",
+    "----- // CLEANING SCRIPTS // -----": "",
+    "clean:npm": "rm -rf ./node_modules"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@forrestjs/eslint-config-universal"
+    ]
+  },
+  "eslintIgnore": [
+    "/.docker-volumes/**/*",
+    "/node_modules/**/*",
+    "/node_build/**/*",
+    "/build/**/*",
+    "/public/**/*"
+  ],
+  "babel": {
+    "presets": [
+      "@forrestjs/babel-preset-universal"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "@forrestjs/package-universal": "^3.7.0"
+  },
+  "devDependencies": {
+    "@forrestjs/package-universal-dev": "^3.7.0"
+  }
+}
