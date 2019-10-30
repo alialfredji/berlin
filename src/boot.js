@@ -4,12 +4,15 @@ import { createHookApp } from '@forrestjs/hooks'
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
+// Resolving Error: Cannot find module 'pg-native'
+// Before Sequelize initialization in application we can remove stupid getter
+delete require('pg').native
+
 export default createHookApp({
     trace: true,
     services: [
         require('@forrestjs/service-env'),
         require('@forrestjs/service-logger'),
-        require('./services/service-onesignal'),
         // require('@forrestjs/service-jwt'),
         // require('@forrestjs/service-express'),
         // require('@forrestjs/service-express-cookies'),
@@ -24,11 +27,6 @@ export default createHookApp({
         // require('./features/feature-pg-session'),
     ],
     settings: async ({ setConfig, getEnv, getConfig }) => {
-        setConfig('onesignal', {
-            url: 'https://onesignal.com/api/v1/notifications',
-            appId: getEnv('ONESIGNAL_APP_ID'),
-            apiKey: getEnv('ONESIGNAL_API_KEY'),
-        })
         // setConfig('express.session.duration', '100y')
 
         // setConfig('jwt', {
