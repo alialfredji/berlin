@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'production') {
     require('./build/src/boot').default().catch(function (err) {
         console.log('*** BOOT: Fatal Error');
         console.log(err);
+        console.log("hello")
     });
     
 
