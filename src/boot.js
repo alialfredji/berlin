@@ -23,6 +23,7 @@ export default createHookApp({
         // require('@forrestjs/service-postgres-pubsub'),
     ],
     features: [
+        require('./feature-foocoding'),
         // require('./features/feature-pg-auth'),
         // require('./features/feature-pg-session'),
     ],
