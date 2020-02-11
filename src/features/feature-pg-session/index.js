@@ -13,6 +13,7 @@ export default ({ registerHook, registerAction }) => {
         name: hooks.FEATURE_NAME,
         handler: ({ registerModel }) => {
             registerModel(sessionModel)
+            console.log('I am practicing pull request')
         },
     })
 
