@@ -5,6 +5,7 @@ import * as hooks from './hooks'
 import * as sessionModel from './session.model'
 import { addSession } from './session.middleware'
 
+
 export default ({ registerHook, registerAction }) => {
     registerHook(hooks)
 
@@ -29,7 +30,7 @@ export default ({ registerHook, registerAction }) => {
         },
     })
 
-    registerAction({
+    registerTHISAction({
         hook: '$EXPRESS_SESSION_START',
         name: hooks.FEATURE_NAME,
         handler: () => getModel('SessionRecord').cleanup(),
