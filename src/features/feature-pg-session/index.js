@@ -12,7 +12,8 @@ export default ({ registerHook, registerAction }) => {
         hook: `${POSTGRES_BEFORE_START}/default`,
         name: hooks.FEATURE_NAME,
         handler: ({ registerModel }) => {
-            registerModel(sessionModel)
+          registerModel(sessionModel)
+          console.log('hello')
         },
     })
 
