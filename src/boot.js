@@ -28,7 +28,6 @@ export default createHookApp({
         // require('./features/feature-pg-session'),
     ],
     settings: async ({ setConfig, getEnv, getConfig }) => {
-        console.log('start')
         // setConfig('express.session.duration', '100y')
 
         // setConfig('jwt', {
